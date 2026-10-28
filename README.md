@@ -175,7 +175,7 @@ Vậy cần **3 lần chạy** (`True`, `WrongSuit`, `WrongRank`) để đạt b
 1. Với phương thức private, có thể test gián tiếp bằng Reflection, mà không cần đổi `isStraightFlush` thành public.
 2. **Statement coverage cần 2 test, branch coverage cần 3 test.** Branch coverage chặt hơn: đạt 100% statement vẫn có thể còn nhánh chưa phủ, như ở lượt 2.
 3. Độ phủ cao không có nghĩa là hết lỗi. Độ phủ chỉ cho biết code đã được chạy, không cho biết kết quả có đúng với mọi đầu vào hay không. Chẳng hạn bộ 3 test này không kiểm tra sảnh 10-J-Q-K-A (Ace cao) hay tay bài có quân trùng rank.
-4. Dòng `assert pCards.length == 5;` ở constructor luôn màu vàng ở cả 3 lượt vì `assert` mặc định bị tắt khi chạy, không liên quan đến `isStraightFlush`. Vì vậy độ phủ của `PokerHand.java` dừng ở 95,2%.
+4. Dòng `assert pCards.length == 5;` ở constructor luôn màu vàng ở cả 3 lượt vì nhánh khi assert thất bại (tạo và ném `AssertionError`) không bao giờ xảy ra với các tay bài hợp lệ trong test. Đó chính là 4 lệnh còn thiếu, và là lý do độ phủ của `PokerHand.java` dừng ở 95,2%. Dòng này không liên quan đến `isStraightFlush`.
 
 ---
 
